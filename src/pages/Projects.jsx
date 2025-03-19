@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaArrowRight } from 'react-icons/fa';
 import project1Screenshot from "../assets/project1.jpg";
 import project2Screenshot from "../assets/project2.jpg";
+import project3Screenshot from "../assets/project3.png";
 
 const Projects = ({ darkMode }) => {
   const projects = [
@@ -9,19 +10,19 @@ const Projects = ({ darkMode }) => {
       title: 'Face Mask Detection',
       description: 'A real-time face mask detection system using CNN and OpenCV to identify masked and unmasked faces, ensuring compliance in public spaces.',
       tech: ['Python', 'Tensorflow', 'OpenCV', 'CNN','MobileNetV2'],
-      link: '#'
+      link: 'https://github.com/NKSG100/Face_mask_detector'
     },
     {
       title: 'JOB Portal',
       description: 'A full-stack job portal enabling users to search and apply for jobs, while employers can post and manage job listings, with secure authentication and real-time updates',
       tech: ['React.JS', 'TailwindCSS', 'ExpressJS', 'MongoDB'],
-      link: '#'
+      link: 'https://github.com/NKSG100/Job-Portal'
     },
     {
       title: 'Secure Pay',
       description: 'A secure payment authentication system with user registration, login, and password recovery using JWT, MongoDB, Express, and React for seamless and safe transactions.',
       tech: ['React.JS', 'TailwindCSS', 'ExpressJS', 'MongoDB'],
-      link: '#'
+      link: 'https://github.com/NKSG100/Secure-Pay'
     },
   ];
 
@@ -53,8 +54,8 @@ const Projects = ({ darkMode }) => {
               darkMode ? 'bg-gray-800' : 'bg-white'
             }`}
           >
-            <div className="h-75 overflow-hidden relative">
-            <img src={index===0 ? project1Screenshot: index===1 ? project2Screenshot:project2Screenshot} alt="Project Screenshot" className="w-full mx-auto rounded-xl shadow-lg"/>
+            <div className="h-65 overflow-hidden relative">
+            <img src={index===0 ? project1Screenshot: index===1 ? project2Screenshot:project3Screenshot} alt="Project Screenshot" className="h-full w-full mx-auto rounded-xl shadow-lg"/>
             </div>
 
             <div className="p-6">

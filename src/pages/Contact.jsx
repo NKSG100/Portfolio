@@ -1,7 +1,27 @@
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
-
+import { useState } from "react";
 const Contact = ({ darkMode }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { name, email, message } = formData;
+    const subject = "Message for Naman";
+    const body = `From: ${name} (${email})\n\n${message}`;
+    const mailtoLink = `mailto:nksnamannks@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink; // Opens default email client
+  };
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -65,10 +85,11 @@ const Contact = ({ darkMode }) => {
             }`}
           >
             <h3 className="text-xl font-bold mb-4">Send Me a Message</h3>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <input
                 type="text"
                 placeholder="Your Name"
+                onChange={handleChange}
                 className={`w-full p-2 rounded-lg border ${
                   darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-100 border-gray-300'
                 }`}
@@ -76,6 +97,7 @@ const Contact = ({ darkMode }) => {
               <input
                 type="email"
                 placeholder="Your Email"
+                onChange={handleChange}
                 className={`w-full p-2 rounded-lg border ${
                   darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-100 border-gray-300'
                 }`}
@@ -83,6 +105,7 @@ const Contact = ({ darkMode }) => {
               <textarea
                 placeholder="Your Message"
                 rows="4"
+                onChange={handleChange}
                 className={`w-full p-2 rounded-lg border ${
                   darkMode ? 'bg-gray-700 border-gray-600' : 'bg-gray-100 border-gray-300'
                 }`}
